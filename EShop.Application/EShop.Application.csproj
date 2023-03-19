@@ -9,8 +9,16 @@
   <ItemGroup>
     <Folder Include="Interfaces\" />
     <Folder Include="ViewModels\" />
-    <Folder Include="Utils\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EShop.Infrastructure.Data\EShop.Infrastructure.Data.csproj" />
   </ItemGroup>
 
 </Project>

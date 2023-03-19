@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\Account\" />
     <Folder Include="Interfaces\" />
   </ItemGroup>
 

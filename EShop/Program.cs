@@ -1,3 +1,5 @@
+using EShop.Application.Utils.Extensions.Connection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +10,8 @@ builder.Services.AddSingleton<IConfiguration>(
     .AddJsonFile($"appsettings.json")
     .Build()
     );
+
+builder.Services.AddApplicationDbContext(builder.Configuration);
 
 var app = builder.Build();
 

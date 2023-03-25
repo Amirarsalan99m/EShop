@@ -1,8 +1,7 @@
 using EShop.Application.Utils.Extensions.Connection;
+using EShop.Infrastructure.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IConfiguration>(
@@ -11,7 +10,12 @@ builder.Services.AddSingleton<IConfiguration>(
     .Build()
     );
 
+#region DbContext and Services
+
 builder.Services.AddApplicationDbContext(builder.Configuration);
+DependencyContainer.RegisterServices(builder.Services);
+
+#endregion
 
 var app = builder.Build();
 

@@ -34,6 +34,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EShop.Application\EShop.Application.csproj" />
     <ProjectReference Include="..\EShop.Infrastructure.Data\EShop.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\EShop.Infrastructure.IoC\EShop.Infrastructure.IoC.csproj" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

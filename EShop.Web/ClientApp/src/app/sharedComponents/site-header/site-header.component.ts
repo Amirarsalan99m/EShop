@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from '../../pages/login/login.component';
 
 @Component({
   selector: 'site-header',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SiteHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  openDialog() {
+    this.dialog.open(LoginComponent, {
+      panelClass: 'custom-dialog-container',
+      data: {
+        message: 'Hello, world!'
+      }
+    });
   }
 
 }

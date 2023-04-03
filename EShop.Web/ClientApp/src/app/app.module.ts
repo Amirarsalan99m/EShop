@@ -23,8 +23,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { Interceptor } from './utilities/Interceptor';
 import { CommentAggressionComponent } from './pages/comment-aggression/comment-aggression.component';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -45,14 +47,16 @@ import { RegisterComponent } from './pages/register/register.component';
     AboutUsComponent,
     ContactUsComponent,
     CommentAggressionComponent,
-    LoginComponent,
-    RegisterComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [BillboardService,
     {

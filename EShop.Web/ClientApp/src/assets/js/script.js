@@ -53,7 +53,7 @@
 
   });
 
-  $(document).ready(function(){
+  $(document).ready(function () {
 
     Chocolat(document.querySelectorAll('.image-link'), {
         imageSize: 'contain',

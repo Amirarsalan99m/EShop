@@ -74,7 +74,7 @@ html {
 }
 
 body {
-  font-family: var(--body-font);
+  font-family: var(--body-font) !important; 
   font-size: 16px;
   line-height: 2;
   color: var(--body-text-color);
@@ -180,7 +180,7 @@ figure.align-right {
 /*----------------------------------------------*/
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  font-family: var(--heading-font);
+  font-family: var(--heading-font) !important;
   line-height: 1.2;
   color: var(--dark-color);
 }
@@ -2178,4 +2178,23 @@ footer#footer {
   .products-grid .product-style {
     width: 100%;
   }
+}
+
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-dialog-container .mat-dialog-container {
+  /* add your styles */
+  display: flex;
+  border-radius: 15px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
 }

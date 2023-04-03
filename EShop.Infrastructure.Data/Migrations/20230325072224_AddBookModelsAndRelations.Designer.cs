@@ -4,6 +4,7 @@ using EShop.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EShop.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(EShopDbContext))]
-    partial class EShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230325072224_AddBookModelsAndRelations")]
+    partial class AddBookModelsAndRelations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -131,10 +134,6 @@ namespace EShop.Infrastructure.Data.Migrations
                     b.Property<DateTime>("LastUpdateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Users");
@@ -154,10 +153,6 @@ namespace EShop.Infrastructure.Data.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -194,10 +189,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 1L,
                             Author = "الیف شافاک",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4532),
-                            Description = "چهل قاعده عشق که به نام ملت عشق نیز شناخته می‌شود، توسط نویسنده فرانسوی متولد ترکیه «الیف شافاک» نوشته شده است. این رمان که پرفروش‌ترین کتاب تاریخ ترکیه به حساب می‌آید، اثری برگرفته از ارتباط عرفانی بین شمس تبریزی و مولانا است که به صورت دو داستان موازی و در هم تنیده روایت می‌شود. بطن اصلی کتاب حول موضوع عشق و نقش آن در دنیای مدرن امروز نسبت به گذشته می‌نگرد و چنان آن را از غرب به شرق گسترش می‌دهد که به زندگی رنگ و بویی عرفانی و زاییده شده از عشق می‌دهد. اینکه چگونه قطعه سنگی کوچک، برکه‌ای راکد و خاموش را به تلاطم و جنبش وا می‌دارد.",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(606),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4534),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(608),
                             Price = 95000,
                             PublisherId = 1L,
                             Release_Date = new DateTime(2015, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -208,10 +202,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 2L,
                             Author = "فردریک بکمن",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4536),
-                            Description = "رمان مردی به نام اوه عنوان اولین کتاب فردریک بک من است که به سی زبان دنیا ترجمه شده و به عنوان پرفروش‌ترین کتاب سال سوئد معروف شده است و در ایران نیز با ترجمه الناز فرحناکیان توسط نشر نون به چاپ رسیده است. در ادامه با ما همراه باشید تا با معرفی این کتاب جذاب که از پرفروش‌ترین‌های سایت آمازون در سال 2016 نیز به حساب می آید شما را با دنیای نویسندگی فردریک بک من آشنا کنیم.",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(611),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4537),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(612),
                             Price = 95000,
                             PublisherId = 2L,
                             Release_Date = new DateTime(2016, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -222,10 +215,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 3L,
                             Author = "اروین یالوم",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4540),
-                            Description = "قبل از خواندن کتاب وقتی نیچه گریست نوشتهُ اروین یالوم با ترجمه سپیده حبیب چه روشی دارید؟ آیا تحقیقی در مورد داستان آن انجام داده‌اید؟، یا شما فقط بدون هیچ گونه اطلاعات قبلی خواندن کتاب را شروع می‌کنید؟ من شخصاً گزینه دوم را ترجیح می‌دهم. بدون اینکه ایده‌ای از آنچه در مورد این رمان بزرگ داشته باشم، خواندن را شروع کردم. در میانه‌های کتاب با خود گفتم: «پرسش‌ها چه هستند؟ و آیا پاسخ‌هایی به فراخور آن وجود دارد؟ علائم اصلی عجز و ناتوانی فردریش نیچه چیست‌اند؟ و یوزف برویر چگونه می‌تواند به روان نیچه وارد شود؟»",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(613),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4541),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(614),
                             Price = 65000,
                             PublisherId = 3L,
                             Release_Date = new DateTime(2020, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -236,10 +228,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 4L,
                             Author = "استیو تولتز",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4542),
-                            Description = "روزی نویسندگان و مورخان در آینده به این دوره از تاریخ نگاه می‌کنند و از رمانی صحبت می‌کنند که همه حتی خردسالان و سالمندان را منقلب کرده است. این رمان بی‌شک «جز از کل» نوشته‌ی «استیو تولز» رمان‌نویس استرالیایی خواهد بود که از اعماق وجود انسان‌ها سخن می‌گوید. «جز از کل» درامی خانوادگی است که ترس، انتظار و زندگی را به شکل متفاوتی معنا می‌کند و به تصویر می‌کشد و هر پاراگراف آن، خود داستانی تأمل‌برانگیز است.",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(616),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4543),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(617),
                             Price = 160000,
                             PublisherId = 4L,
                             Release_Date = new DateTime(2016, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -250,10 +241,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 5L,
                             Author = "ژان تولی",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4545),
-                            Description = "بعضی رمان‌ها خلاف جریان آب شنا می‌کنند و این داستان را بسیار خواندنی‌تر و جذاب‌تر می‌کند. کمدی سیاه یک ژانر معروف در ادبیات است که با بیان واقعیات جامعه به زبان طنز سعی دارد هم از اتفاقات جامعه بگوید و هم با روایت کمدی لبخند بر روی لب خواننده بیاورد. یکی از معروف‌ترین کتاب‌های کمدی سیاه مغازه‌ی خودکشی به قلم ژان تولی است. شما با خواندن این کتاب به شهری در آینده‌ی دور می‌روید. جایی بی‌نام و نشان که ممکن است با آن احساس نزدیکی کنید. در سال ۲۰۱۲ نیز از این کتاب یک انیمیشن فرانسوی ساخته شد.",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(619),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4546),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(620),
                             Price = 38000,
                             PublisherId = 4L,
                             Release_Date = new DateTime(2018, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -264,10 +254,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 6L,
                             Author = "جورج اورول‌",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4548),
-                            Description = "کتاب قلعه حیوانات با عنوان اصلی (Animal Farm) نخستین بار در سال 1945 منتشر شد. جورج اورول این کتاب را در طول جنگ جهانی دوم نوشت و در آن از استبداد طبقه‌ی حاکم شوروی انتقاد کرد. پرچمی که اورول در داستان برای مزرعه‌ی حیوانات ترسیم می‌کند شبیه به پرچم شوروی است. این کتاب درواقع نقدی به نظام سرمایه‌داری است.",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(622),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4549),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(622),
                             Price = 5000,
                             PublisherId = 15L,
                             Release_Date = new DateTime(2021, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -278,10 +267,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 7L,
                             Author = "شارون گاسکین",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4551),
-                            Description = "«آقای دکتر متوجه چیزهایی که گفتم می‌‌شین؟» تنفس! کلمه‌ای که هم دم و هم بازدم دارد. اگر انسان چنین کلمه‌ای را از دست بدهد همه‌چیز را از دست داده است. «آقای دکتر...» «متوجه می‌شم؟ معلومه! اون‌قدرها هم پرت نشده‌م؛ هنوز نه. به‌نظر می‌آد هنوز می‌تونم ساختارهای سادۀ جملات رو رمزگشایی کنم.» حس می‌کرد صدایش در حال خارج‌شدن از کنترل است و به‌سختی توانست مهارش کند. «حالتون خوبه؟» نبض خودش را حس می‌کرد. به‌نظر عادی می‌آمد اما کاملاً مطمئن نبود. «می‌شه گوشی طبی‌تون رو قرض بگیرم؟»",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(624),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4552),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(625),
                             Price = 55000,
                             PublisherId = 16L,
                             Release_Date = new DateTime(2020, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -292,10 +280,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 8L,
                             Author = "پم مونیوس رایان",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4554),
-                            Description = "«این دره نفس می‌کشه و زنده‌ست!» پاپا دستش را به سمت کوه‌هایی بلند کرد که از دور مراقبشان بودند و گفت: «انگورهایی رو بهمون می‌ده که ازمون استقبال می‌کنن.» پدر، به‌آرامی، پیچکی وحشی را نوازش کرد که از روی داربست به پایین خم شده بود و انگار منتظر بود با او دست بدهد. مشتی خاک برداشت و کف دستش وارسی کرد و گفت: «می‌دونستی که وقتی روی زمین دراز بکشی، می‌تونی نفس کشیدن و تپیدن قلبش رو حس کنی؟»",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(627),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4555),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(628),
                             Price = 49000,
                             PublisherId = 14L,
                             Release_Date = new DateTime(2019, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -306,10 +293,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 9L,
                             Author = "دبورا ھاپکینسن",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4556),
-                            Description = "معلم عزیزم، هر زمان می‌خواستم چیزی به تو بگویم، گوشه‌ی لباست را می‌کشیدم و در گوشت زمزمه می‌کردم؛ این بار می‌خواهم نامه‌ای برایت بنویسم...! دخترکی که حالا بزرگ شده برای معلمش نامه‌ای می‌نویسد و خاطرات دوران مدرسه‌ و مهربانی‌های معلمش را تعریف می‌کند. او به یاد معلمش افتاده و تصمیم گرفته برای او نامه‌ای بنویسد. حالا دخترک خودش هم یک معلم است. این کتاب، داستانی احساسی و روایتی زیبا و خواندنی از تلاش‌ها و مهربانی‌های معلمان است. همچنین بر این نکته تمرکز می‌کند که باید قدردان زحمات معلم‌ها باشیم.",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(629),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4557),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(630),
                             Price = 49000,
                             PublisherId = 14L,
                             Release_Date = new DateTime(2019, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -320,10 +306,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 10L,
                             Author = "صادق هدایت",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4560),
-                            Description = "دیروز بود که اتاقم را جدا کردند، آیا همان‌طوری که ناظم وعده داد من حالا به‌کلی معالجه شده‌ام و هفته‌ی دیگر آزاد خواهم شد؟ آیا ناخوش بوده‌ام؟ یکسال است، در تمام این مدت هرچه التماس می‌کردم کاغذ و قلم می‌خواستم بهم نمی‌دادند. همیشه پیش خودم گمان می‌کردم هر ساعتی که قلم و کاغذ بدستم بیفتد چقدر چیزها که نخواهم نوشت… ولی دیروز بدون اینکه خواسته باشم کاغذ و قلم را برایم آوردند. چیزی که آنقدر آرزو می‌کردم، چیزی که انتظارش را داشتم ...! اما چه فایده ... از دیروز تا حالا هرچه فکر می‌کنم چیزی ندارم که بنویسم. مثل این است که کسی دست مرا می‌گیرد یا بازویم بی‌حس می‌شود. حالا که دقت می‌کنم مابین خط‌های درهم و برهمی که روی کاغذ کشیده‌ام تنها چیزی که خوانده می‌شود این است: «سه قطره خون»",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(632),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4562),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(633),
                             Price = 8500,
                             PublisherId = 17L,
                             Release_Date = new DateTime(2020, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -334,10 +319,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 11L,
                             Author = "ام. تی. ادواردسن",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4564),
-                            Description = "همسرم در همین اتاق رسیدگی حضور دارد. قبل از اینکه وارد شویم و از بخش حراست عبور کنیم، روی پله‌های بیرون دادگاه همدیگر را در آغوش کشیدیم. سپس با دستان لرزانش دستانم را فشرد و گفت کاری از دست ما ساخته نیست و رأی نهایی را شخص دیگری صادر می‌کند. هر دوی ما می‌دانیم که این اصلاً عادلانه نیست. با شنیدن صدای بلندگو ته دلم خالی می‌شود. مرا صدا می‌کنند. باید بروم داخل. به‌سختی از جایم بلند می‌شوم. مأمور در را برایم باز می‌کند. سرش را به نشانۀ تأیید تکان می‌دهد. چهرۀ بی‌تفاوتی دارد، هرچند اینجا جای فکر کردن به این مسائل نیست. اتاق شمارۀ ۲ خیلی بزرگ‌تر از انتظارم است. همسرم با ظاهری کاملاً خسته و گونه‌هایی خیس بین حضار دیده می‌",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(635),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4565),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(636),
                             Price = 70000,
                             PublisherId = 16L,
                             Release_Date = new DateTime(2020, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -348,10 +332,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 12L,
                             Author = "ژاک شابان",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4567),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(638),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4568),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(639),
                             Price = 12000,
                             PublisherId = 18L,
                             Release_Date = new DateTime(2015, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -362,10 +345,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 13L,
                             Author = "الیف شافاک",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4569),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(640),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4570),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(641),
                             Price = 69000,
                             PublisherId = 19L,
                             Release_Date = new DateTime(2017, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -376,10 +358,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 14L,
                             Author = "فیودور داستایوفسکی",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4600),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(643),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4601),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(644),
                             Price = 16000,
                             PublisherId = 18L,
                             Release_Date = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -390,10 +371,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 15L,
                             Author = "جینین ساندرز ، کریگ اسمیت",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4603),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(645),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4604),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(646),
                             Price = 49000,
                             PublisherId = 14L,
                             Release_Date = new DateTime(2019, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -404,10 +384,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 16L,
                             Author = "رابین شارما",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4606),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(648),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4607),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(649),
                             Price = 158000,
                             PublisherId = 20L,
                             Release_Date = new DateTime(2021, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -418,10 +397,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 17L,
                             Author = "استیون هاوکینگ",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4608),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(651),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4609),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(652),
                             Price = 8000,
                             PublisherId = 21L,
                             Release_Date = new DateTime(2022, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -432,10 +410,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 18L,
                             Author = "ليليان گلاس",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4611),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(654),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4612),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(655),
                             Price = 8000,
                             PublisherId = 21L,
                             Release_Date = new DateTime(2022, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -446,10 +423,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 19L,
                             Author = "دارن هاردی",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4614),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(657),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4615),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(657),
                             Price = 8000,
                             PublisherId = 21L,
                             Release_Date = new DateTime(2020, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -460,10 +436,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 20L,
                             Author = "شلی استايل",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4618),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(659),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4619),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(660),
                             Price = 15000,
                             PublisherId = 22L,
                             Release_Date = new DateTime(2016, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -474,10 +449,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 21L,
                             Author = "آرون تی‌بک",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4621),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(662),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4622),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(663),
                             Price = 35000,
                             PublisherId = 23L,
                             Release_Date = new DateTime(2018, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -488,10 +462,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 22L,
                             Author = "چارلز هانل",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4624),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(665),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4625),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(666),
                             Price = 25000,
                             PublisherId = 23L,
                             Release_Date = new DateTime(2011, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -502,10 +475,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 23L,
                             Author = "استیون میچل ، بایرون کیتی",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4626),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(668),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4627),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(669),
                             Price = 95000,
                             PublisherId = 24L,
                             Release_Date = new DateTime(2021, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -516,10 +488,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 24L,
                             Author = "نسرین دانائی",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4629),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(671),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4630),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(672),
                             Price = 25000,
                             PublisherId = 13L,
                             Release_Date = new DateTime(2020, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -530,10 +501,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 25L,
                             Author = "ریچل هالیس",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4632),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(674),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4633),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(675),
                             Price = 64000,
                             PublisherId = 20L,
                             Release_Date = new DateTime(2020, 12, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -544,10 +514,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 26L,
                             Author = "جیم ران",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4635),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(677),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4636),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(678),
                             Price = 20000,
                             PublisherId = 23L,
                             Release_Date = new DateTime(2018, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -558,10 +527,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 27L,
                             Author = "روندا برن",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4638),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(679),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4638),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(680),
                             Price = 45000,
                             PublisherId = 23L,
                             Release_Date = new DateTime(2015, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -572,10 +540,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 28L,
                             Author = "سهراب سپهری",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4640),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(682),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4641),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(683),
                             Price = 10000,
                             PublisherId = 13L,
                             Release_Date = new DateTime(2004, 2, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -586,10 +553,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 29L,
                             Author = "علی باباچاهی",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4644),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(685),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4645),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(686),
                             Price = 68000,
                             PublisherId = 10L,
                             Release_Date = new DateTime(2020, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -600,10 +566,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 30L,
                             Author = "سیّد رضا محمدی",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4647),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(688),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4648),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(688),
                             Price = 9000,
                             PublisherId = 16L,
                             Release_Date = new DateTime(2018, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -614,10 +579,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 31L,
                             Author = "مصطفی سپهری‌نیا",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4649),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(691),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4650),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(692),
                             Price = 4500,
                             PublisherId = 17L,
                             Release_Date = new DateTime(2020, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -628,10 +592,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 32L,
                             Author = "مسیحا برزگر",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4652),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(694),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4653),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(695),
                             Price = 20000,
                             PublisherId = 23L,
                             Release_Date = new DateTime(2022, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -642,10 +605,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 33L,
                             Author = "کامیار عابدی",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4655),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(696),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4656),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(697),
                             Price = 78000,
                             PublisherId = 10L,
                             Release_Date = new DateTime(2021, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -656,10 +618,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 34L,
                             Author = "پدرام حکیم‌زاده",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4658),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(699),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4659),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(700),
                             Price = 6000,
                             PublisherId = 25L,
                             Release_Date = new DateTime(2019, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -670,10 +631,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 35L,
                             Author = "پدرام حکیم‌زاده",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4661),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(701),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4662),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(702),
                             Price = 14000,
                             PublisherId = 25L,
                             Release_Date = new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -684,10 +644,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 36L,
                             Author = "پدرام حکیم‌زاده",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4663),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(704),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4664),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(705),
                             Price = 12000,
                             PublisherId = 25L,
                             Release_Date = new DateTime(2018, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -698,10 +657,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 37L,
                             Author = "پدرام حکیم‌زاده ، مصلح‌بن عبدالله سعدی",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4666),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(706),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4667),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(707),
                             Price = 6000,
                             PublisherId = 25L,
                             Release_Date = new DateTime(2018, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -712,10 +670,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 38L,
                             Author = "مک بارنت",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4670),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(710),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4671),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(711),
                             Price = 49000,
                             PublisherId = 14L,
                             Release_Date = new DateTime(2018, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -726,10 +683,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 39L,
                             Author = "جاناتان لاندِن",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4673),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(712),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4674),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(713),
                             Price = 49000,
                             PublisherId = 14L,
                             Release_Date = new DateTime(2019, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -740,10 +696,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 40L,
                             Author = "لیزا مَنچاو",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4675),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(715),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4676),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(716),
                             Price = 29000,
                             PublisherId = 14L,
                             Release_Date = new DateTime(2018, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -754,10 +709,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 41L,
                             Author = "نیک براملی",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4678),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(718),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4679),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(719),
                             Price = 24000,
                             PublisherId = 14L,
                             Release_Date = new DateTime(2019, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -768,10 +722,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 42L,
                             Author = "مورین رایت",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4681),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(750),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4682),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(751),
                             Price = 49000,
                             PublisherId = 14L,
                             Release_Date = new DateTime(2019, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -782,10 +735,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 43L,
                             Author = "استیون هاوکینگ",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4684),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(753),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4685),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(753),
                             Price = 8000,
                             PublisherId = 26L,
                             Release_Date = new DateTime(2022, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -796,10 +748,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 44L,
                             Author = "ماری رابرت",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4686),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(755),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4687),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(756),
                             Price = 20000,
                             PublisherId = 16L,
                             Release_Date = new DateTime(2021, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -810,10 +761,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 45L,
                             Author = "رضا داوری اردکانی",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4689),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(758),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4690),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(759),
                             Price = 25000,
                             PublisherId = 13L,
                             Release_Date = new DateTime(2013, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -824,10 +774,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 46L,
                             Author = "الکساندر نهاماس",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4692),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(760),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4693),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(761),
                             Price = 35000,
                             PublisherId = 1L,
                             Release_Date = new DateTime(2022, 1, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -838,10 +787,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 47L,
                             Author = "دانیل ام. کلاین",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4697),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(763),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4698),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(763),
                             Price = 20000,
                             PublisherId = 16L,
                             Release_Date = new DateTime(2021, 1, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -852,10 +800,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 48L,
                             Author = "فريدريش نيچه",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4700),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(765),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4700),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(766),
                             Price = 95000,
                             PublisherId = 18L,
                             Release_Date = new DateTime(2017, 2, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -866,10 +813,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 49L,
                             Author = "دُن تامپسون",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4702),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(769),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4703),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(770),
                             Price = 98000,
                             PublisherId = 27L,
                             Release_Date = new DateTime(2019, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -880,10 +826,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 50L,
                             Author = "بیل براودر",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4705),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(772),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4706),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(773),
                             Price = 55000,
                             PublisherId = 16L,
                             Release_Date = new DateTime(2019, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -894,10 +839,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 51L,
                             Author = "حسین سیلسپور",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4708),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(774),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4709),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(775),
                             Price = 35000,
                             PublisherId = 17L,
                             Release_Date = new DateTime(2017, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -908,10 +852,9 @@ namespace EShop.Infrastructure.Data.Migrations
                         {
                             Id = 52L,
                             Author = "آرویند ساتهی",
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4711),
-                            Description = "Description",
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(777),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4712),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(777),
                             Price = 52000,
                             PublisherId = 28L,
                             Release_Date = new DateTime(2020, 6, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1290,55 +1233,55 @@ namespace EShop.Infrastructure.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(3191),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 677, DateTimeKind.Local).AddTicks(9447),
                             Description = "داستان‌ها در ادبیات جهان سابقه دور و درازی دارند. این روایت‌ها از زمانی که قصه‌ها سینه به سینه منتقل می‌شدند وجود دارند تا ادبیات معاصر امروز. در هیچ دوره‌ای انسان‌ها بی نیاز از داستان‌ها نیستند. زیرا شیرینی بی‌نظیر و تکرار نشدنی در این وجود دارد که در خیال دیگران غرق شویم و تجربیات ناب لحظه‌های دیگران را مال خود بدانیم.\r\n                داستان محصول ذهن خلاق فردی به نام نویسنده است که شخصیت‌های داستانش را ساخته و پرداخته و به زبان ادبی روایت می‌کند.یک داستان خوب می‌تواند مسیر زندگی شما را تغییر دهد؛ زیرا آموزه های آن در زندگی واقعی کاربرد فراوانی دارد.کتاب به انسان آگاهی می دهد و از تکرار خطاها و کج روی ها پیش گیری می کند.با مطالعه کتب داستانی متنوع می توانیم از حقوق فردی و اجتماعی خود آگاه شویم و از آن دفاع کنیم.\r\n                هم چنین کتاب‌خوانی به کتاب‌خوان فرصت می‌دهد تا بدونِ پرداخت هزینه مالی و جانی‌ که نویسنده یا شخصیت‌های کتاب پرداخت کرده‌اند، تجربه آن‌ها را مال خود کند.این محکم‌ترین دلیل برای کتاب‌خوانی‌ست.جالب است بدانید که با مطالعه مشهورترین رمان های دنیا از سبک زندگی انسان ها در سراسر دنیا آشنا می شویم و می توانیم نقاط مثبت هر یک را در روزمره خود به کار بندیم.",
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(3224),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 677, DateTimeKind.Local).AddTicks(9479),
                             Name = "داستان و رمان"
                         },
                         new
                         {
                             Id = 2L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(3227),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 677, DateTimeKind.Local).AddTicks(9483),
                             Description = "دانش روانشناسی، دانشی است که از نیمه‌ی دوم قرن هفدهم ظهور کرده و شاخه‌های متنوعی دارد. افرادی مانند ژان پیاژه، زیگموند فروید، کارال راجرز و گوستاو یونگ عمرشان را صرف کرده‌اند تا مفاهیم این دانش را تکمیل کنند و از آن برای کمک به بشر در مسیر یک زندگی بهتر بهره ببرند.\r\nدر دنیای امروز که زندگی بسیار پرمشغله‌تر از گذشته شده و روابط پیچیده‌تر شده‌اند همه‌ی افراد به این دانش نیاز دارند. نیاز به خودشناسی در دنیای ما که رسانه‌های مختلف انواع محتوا را به خوردمان می‌دهند و معیارهای متعددی را برای خوشبختی و موفقیت معرفی می‌کنند بسیار بیشتر از گذشته است. امروزه برای یک ازدواج موفق درک درست از شخصیت خودمان و طرف مقابل ضروری است و برای داشتن یک خانواده‌ی سالم نیاز داریم اصول تربیتی را بهتر فرا بگیریم. استفاده از روانشناس بالینی بسیار مفید است اما ممکن است همه به چنین شرایط دسترسی نداشته باشند. جای نگرانی نیست، این روزها دیگر کتاب‌های روانشناسی فقط به کتاب‌های دانشگاهی که مخصوص دانشجویان و متخصصان هستند محدود نمی‌شوند و انواع کتاب فیزیکی و صوتی برای گروه‌های مختلف نوشته‌شده‌اند و به‌ راحتی می‌توانید متناسب با نیازتان یک گزینه‌ی خوب را انتخاب کنید.",
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(3228),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 677, DateTimeKind.Local).AddTicks(9484),
                             Name = "روانشناسی"
                         },
                         new
                         {
                             Id = 3L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(3230),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 677, DateTimeKind.Local).AddTicks(9485),
                             Description = "شعر کلامی تاثیر گذار و سخنی خیال انگیز است که موزون سروده می شود. از زمانی که انسان با مفهوم شعر آشنا شده است همواره آن را آهنگین یافته و مسحور و مفتون آن گشته است.  شاعر نقاش زبردستی است که خوبی ها و بدی ها را به زیبایی در قالب کلمات موزون به تصویر می کشد و با سرودن اشعار لطیف و بدیع توجه همگان را به شعر معطوف می دارد.\r\nدر این میان همواره شعر های عاشقانه و احساسی در طول تاریخ مورد توجه بسیار بوده اند و داستان ها و حکایت های عاشقانه بسیاری به صورت نظم در ادبیات کهن ایران برجای مانده است که در میان آن ها می توان به کتب شعر عاشقانه خسرو و شیرین، لیلی و مجنون و شیرین و فرهاد اشاره کرد.",
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(3231),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 677, DateTimeKind.Local).AddTicks(9486),
                             Name = "شعر"
                         },
                         new
                         {
                             Id = 4L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(3232),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 677, DateTimeKind.Local).AddTicks(9487),
                             Description = "اهمیت آموزش کودکان و پرورش ذهن آن‌ها برای درک جهانی که در آن زندگی می‌کنند بر کسی پوشیده نیست. کودکان به‌واسطه‌ی کتاب‌ها و دیگر انواع محتوا با پدیده‌های گوناگون آشنا می‌شوند و باعث درک بهتر آنها از پیرامون خود می‌شود تا بتوانند در موقعیت‌های مختلف واکنش مناسبی از خود نشان دهند. کودکان قشری هستند که معمولاً خودشان محتوا را انتخاب نمی‌کنند و نقش خانواده و مربی در معرفی و تهیه آن بسیار زیاد است. برای همین کسب آگاهی و انتخاب محتوای مناسب برای کودکان توسط والدین و خانواده بسیار حائز اهمیت است. کودکان با مطالعه‌ی کتاب‌های علمی می‌توانند پاسخ سوالات خود را پیدا کنند و یا کنجکاو شوند. همچنین کتاب‌های داستان و رمان می‌تواند به آن‌ها کمک کند تا با شخصیت‌های بیشتری آشنا شوند و تجربیات بیشتری کسب کنند و از همه مهم‌تر قوه‌ی تخیل کودکان نیز رشد پیدا کند. یکی از مواردی که باید در خرید کتاب کودک به آن توجه کنیم رده‌ی سنی است.",
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(3233),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 677, DateTimeKind.Local).AddTicks(9488),
                             Name = "کودک"
                         },
                         new
                         {
                             Id = 5L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(3235),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 677, DateTimeKind.Local).AddTicks(9490),
                             Description = "اگر بخواهیم از تعریف کلمه‌ی فلسفه شروع کنیم این کلمه از کلمه‌ی یونانی فیلوسوفیا گرفته شده است و طبق تعریف ویکی پدیا به‌معنای مطالعه پرسش‌های بنیادین عالم است. تاریخ فلسفه تاریخ پر فراز و نشیبی است که از زمان سقراط اولین فیلسوف بزرگ یونان آغاز شده و با افرادی مانند فردریش نیچه، برتراند راسل و ویل دورانت تا امروز ادامه داشته و گسترده شده است. امروز اگر بخواهیم از فلسفه حرف بزنیم باید بدانیم منظورمان فلسفه‌ی غرب است که در یونان ریشه دارد یا می‌خواهیم از فلسفه‌ی شرق حرف بزنیم؟ فلسفه دیگر مانند گذشته محدود نیست و آثار فلسفی هم موضوعات زیادی از فلسفه اخلاق و فلسفه سیاسی تا فلسفه اسلامی و ... را پوشش می‌دهند. گروهی از فلاسفه معتقدند فلسفه تنها متعلق به فیلسوفان است و در زندگی مردم عادی نقشی ندارد اما گروهی هم تلاش کرده‌اند با معرفی کتاب‌هایی مانند رمان‌های فلسفی یا کتاب‌های فلسفی روانشناسی آن را با زندگی روزمره بیامیزند و همین باعث تنوع در آثار فلسفی شده است. ",
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(3235),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 677, DateTimeKind.Local).AddTicks(9491),
                             Name = "فلسفه"
                         },
                         new
                         {
                             Id = 6L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(3238),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 677, DateTimeKind.Local).AddTicks(9492),
                             Description = "اقتصاد در بطن زندگی انسان ریشه دوانده و زندگی روزمره را به شدت تحت تاثیر قرار داده است. ما بدون آنکه به علم اقتصاد و پیچیدگی‌های آن بیاندیشیم، تصمیم‌هایی می‌گیریم که اقتصاد آن را اداره می‌کند. مقایسه‌ی تورهای مسافرتی، خرید اشتراک اینترنت، تعویض ماشین همه و همه به محاسبات اقتصادی و نوع نگاه ما به آن بستگی دارد. علم اقتصاد به زبان ساده به این شکل تعریف می‌شود: یک نظام اقتصادی مربوط به یک منطقه سیاسی یا جغرافیایی خاص است و تولید، توزیع و مصرف کالا و خدمات را دربرمی‌گیرد. در اقتصاد 4 عامل نقش کلیدی ایفا می‌کند: منابع انسانی، منابع مالی، زمین و کسب و کار",
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(3239),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 677, DateTimeKind.Local).AddTicks(9493),
                             Name = "اقتصاد"
                         });
                 });
@@ -1379,281 +1322,281 @@ namespace EShop.Infrastructure.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4148),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(194),
                             Description = "فروشگاه انتشارات ققنوس در بهمن‌ماه سال ١٣٥٦ آغاز به کار کرد، اما این آغازِ کار نبود: امیر حسین‌زادگان، مؤسس انتشارات، کارش را در این حوزه از سال ١٣٥٠، در یکی از محلات جنوب‌غربی تهران، مهرآباد جنوبی، و با راه‌اندازی کتابفروشی «امیر»، شروع کرد.",
                             Establishment_Date = new DateTime(1978, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4151),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(197),
                             Name = "گروه انتشاراتی ققنوس"
                         },
                         new
                         {
                             Id = 2L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4153),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(202),
                             Description = "ندارد",
                             Establishment_Date = new DateTime(2012, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4154),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(203),
                             Name = "نشر نون"
                         },
                         new
                         {
                             Id = 3L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4156),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(205),
                             Description = "نشر قطره یک مؤسسه انتشاراتی چاپ و نشر کتاب در ایران است که از سال ۱۳۶۷ آغاز به فعالیت نموده‌است. عناوین کتاب‌های نشر شده توسط این انتشاراتی شامل حوزه‌های مختلفی از جمله ادبیات داستانی داخلی و خارجی،[۱] نمایش‌نامه، داستان کوتاه، کتب آموزشی و غیره می‌گردد.",
                             Establishment_Date = new DateTime(1988, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4157),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(206),
                             Name = "نشر قطره"
                         },
                         new
                         {
                             Id = 4L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4158),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(207),
                             Description = "نشر چشمه مؤسسات انتشاراتی در ایران که عمده فعالیتش در زمینه ادبیات است.[۱]\r\n                    انتشارات چشمه فعالیت خود را برای انتشار کتاب از سال ۱۳۶۴ شروع کرد.[۲] مدیر این انتشارات سیّد حسن کیائیان موسوی است. این انتشارات در خرداد ۱۳۹۱ از سوی وزارت ارشاد لغو مجوز شد.[۳] و در زمان دولت یازدهم فعالیتش را از سر گرفت. انتشارات چشمه از زمان تأسیس در حوزه‌های مختلف هنر و ادبیات مانند داستان، شعر، نمایشنامه، فیلمنامه، سینما، تحقیقات ادبی، متون کهن، فلسفه، علوم اجتماعی، اسطوره و تاریخ فعالیت کرده‌است.",
                             Establishment_Date = new DateTime(1985, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4159),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(208),
                             Name = "نشر چشمه"
                         },
                         new
                         {
                             Id = 5L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4161),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(210),
                             Description = "انتشارات نقش و نگار در سال 1373 توسط ابراهیم شهلایی مقدم تأسیس شد و تا به حال بیش از 50 عنوان کتاب در موضوعات عمومی منتشر کرده است.",
                             Establishment_Date = new DateTime(1994, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4162),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(211),
                             Name = "انتشارات نقش و نگار"
                         },
                         new
                         {
                             Id = 6L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4163),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(212),
                             Description = "",
                             Establishment_Date = new DateTime(2013, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4164),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(213),
                             Name = "نشر شمشاد"
                         },
                         new
                         {
                             Id = 7L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4166),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(215),
                             Description = "",
                             Establishment_Date = new DateTime(1978, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4167),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(216),
                             Name = "انتشارات نگاه نوین"
                         },
                         new
                         {
                             Id = 8L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4168),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(217),
                             Description = "انتشارات درسا از سال 1372 آغاز به کار کرد؛ اما شروع فعالیت فرهنگی این مجموعه به چند سال پیش از آن باز می‌گردد: مرحوم صمد رحیمیان، مؤسس و صاحب‌ امتیاز شرکت نشر و پخش ویس و انتشارات رسام، از سال 1364 فعالیت خود را با تولید کتاب‌هایی در حوزه‌ی علوم سیاسی، ادبیات داستانی، روان‌ شناسی و روان‌ شناسی نوین، در محل کنونی انتشارات درسا آغاز کرد.  در سال 1369 ایشان بنا به دلایلی ناگزیر شد شرکت نشر و پخش ویس را منحل کند. در همین سال به‌ اتفاق همسر و فرزندش (کیوان رحیمیان) نشر درسا را پایه‌گذاری کرد و در پی اخذ پروانه‌ی نشر جدید به نام همسرش در سال 1372، پس از پنج سال نشر لیوسا نیز با مدیریت و صاحب‌امتیازی کیوان رحیمیان وارد فعالیت رسمی در صنعت نشر ایران شد.",
                             Establishment_Date = new DateTime(1985, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4169),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(218),
                             Name = "انتشارات درسا"
                         },
                         new
                         {
                             Id = 9L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4171),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(219),
                             Description = "",
                             Establishment_Date = new DateTime(1978, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4172),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(220),
                             Name = "نشر راویس"
                         },
                         new
                         {
                             Id = 10L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4173),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(222),
                             Description = "نشر ثالث یک شرکت فعال در زمینه چاپ و نشر کتاب می‌باشد که از سال ۱۳۷۵ فعالیت خود را آغاز کرده‌است. این انتشاراتی آثار متعددی را عمدتاً در حوزه‌های علوم انسانی (ادبیات، دین، تاریخ، فلسفه، علوم اجتماعی، روان‌شناسی و هنر) منتشر کرده‌است.[۱][۲] از میان کتاب‌هایی که نشر ثالث منتشر کرده می‌توان به دون کیشوت اثر سروانتس با ترجمه‌ی محمد قاضی ، ریشه‌های توتالیتاریسم اثر هانا آرنت با ترجمه محسن ثلاثی و در حوزه رمان کتابخانه نیمه شب اثر مت هیگ با ترجمه امین حسینیون اشاره کرد.",
                             Establishment_Date = new DateTime(1996, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4174),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(223),
                             Name = "نشر ثالث"
                         },
                         new
                         {
                             Id = 11L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4175),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(224),
                             Description = "این انتشارات در آستانه فعالیت خود همواره این مهم را مدنظر داشته‌است که نه برای نبرد و رقابت بلکه برای پوشش‌دادن به خلأ موجود در دنیای فرهنگ و هنر پا به عرصه نشر می‌نهد. کمبودی که شاید در حال حاضر وجود آن به طور ملموس قابل درک نباشد؛ اما بدون شک در آینده خود را بیش از پیش نمایان و آشکار می‌سازد.",
                             Establishment_Date = new DateTime(2018, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4176),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(225),
                             Name = "نشر بید"
                         },
                         new
                         {
                             Id = 12L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4178),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(226),
                             Description = "انتشارات نسل روشن با مجوز رسمی از وزارت فرهنگ و ارشاد اسلامی و در اختیار داشتن خط تولید کامل چاپ کتاب (از تبدیل دست نوشته‌های صاحب اثر تا تحویل کتابی مرغوب و با کیفیت) و تجربه چاپ و انتشار بیش از ۱۰۰۰ عنوان کتاب در زمینه‌های مختلف(علمی، دانشگاهی، شعر،رمان و…) افتخار دارد در خدمت اساتید و نویسندگان عزیزی که تمایل دارند آثار و تالیفات خود را به ثبت برسانند باشد",
                             Establishment_Date = new DateTime(1978, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4179),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(227),
                             Name = "انتشارات نسل روشن"
                         },
                         new
                         {
                             Id = 13L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4180),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(229),
                             Description = "تشارات سخن یکی از ناشران ایرانی است که در حوزه‌های تاریخ، علوم اجتماعی و علوم انسانی، فرهنگ و ادبیات فعالیت دارد.[۱]مدیریت این انتشارات بر عهدهٔ علی‌اصغر علمی است.[۲]تاکنون ۱۲ عنوان کتاب از انتشارات سخن به عنوان کتاب سال شناخته شده‌است.",
                             Establishment_Date = new DateTime(1990, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4181),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(230),
                             Name = "انتشارات سخن"
                         },
                         new
                         {
                             Id = 14L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4183),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(231),
                             Description = "ما انتشارات پرتقال هستیم، بچه‌ی انتشارات خیلی‌سبز!\r\n                    یه خواهشی داشتیم... لطفا بزرگ نشید !\r\n                    ما هم یه روز مثل شما و هم سن و سال شما بودیم؛ خوش‌حال بودیم و بی‌دلیل می‌خندیدیم!\r\n                    تا اینکه یکی صدامون کرد... چپ چپ به بستنی توی دستمون و توپی که تو دست دیگه‌مون بود نگاه کرد،\r\n                    مستقیم توی چشم‌هامون زل زد و گفت: «بهتره زودتر بزرگ بشید؛ بزرگ شدن و بزرگ بودن خیلی خوبه...»",
                             Establishment_Date = new DateTime(2016, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4184),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(232),
                             Name = "نشر پرتقال"
                         },
                         new
                         {
                             Id = 15L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4185),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(233),
                             Description = "",
                             Establishment_Date = new DateTime(1978, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4186),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(234),
                             Name = "انتشارات کتاب همراه"
                         },
                         new
                         {
                             Id = 16L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4188),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(236),
                             Description = "نشر کتاب کوله‌پشتی یک مؤسسه انتشاراتی کتاب در ایران است که از سال ۱۳۹۰ فعالیتش را آغاز و عمده فعالیتش در زمینه ادبیات داخلی و خارجی است.[۱] شهرت این انتشاراتی از آنجایی است که برای نخستین مرتبه در ایران، کتاب‌های منتشر شده را دارای گارانتی رسمی نموده‌است[۲] این انتشاراتی همچنین در زمینه چاپ و نشر رمان و داستان بلند نیز با انتشار آثاری در این زمینه، نامزد جایزه ادبی جلال آل‌احمد سال ۱۳۹۷ گردیده‌است.",
                             Establishment_Date = new DateTime(2011, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4189),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(237),
                             Name = "انتشارات کتاب کوله‌پشتی"
                         },
                         new
                         {
                             Id = 17L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4218),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(238),
                             Description = "انتشارات گیوا با چشم‌انداز بین‌المللی و با هدف اعتلای فرهنگ ایرانی از آبان ۱۳۹۴ کار خود را به عنوان ناشر مستقل در زمینه‌ی دانشگاهی آغاز کرد و یک‌سال بعد حوزه‌ی فعالیتش را در عرصه‌ی شعر و ادبیات و کتاب‌های عمومی نیز گستراند. گیوا با شعار «هر ایرانی یک کتاب»، با توکل به خدا و تکیه به اعتماد مردمان خوبمان تصمیم دارد در گام نخستِ چشم‌انداز ِ ایده‌آلیستی خود از هر ایرانی اهل قلم، کتابی به چاپ برساند و در گام دوم و به کمک آثار نویسندگان عزیز، موضوعات کتاب‌ها را تنوع‌بخشی کرده و با ورود بیشتر و بهتر به عرصه‌های شعر، ترانه، داستان، رمان، نقد و نظریه، فیلمنامه و نمایشنامه، منطق، فلسفه و روانشناسی، حقوق و علوم سیاسی، مدیریت و اقتصاد، تاریخ و هنر، علوم پایه و … ویترینی به وسعت ایران بزرگ و فراتر از آن تشکیل دهد تا هر نوع سلیقه‌‌ای را تامین نماید.",
                             Establishment_Date = new DateTime(2015, 10, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4219),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(239),
                             Name = "انتشارات گیوا"
                         },
                         new
                         {
                             Id = 18L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4221),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(240),
                             Description = "انتشارات جامی ناشر برترین کتابهای ادبی، هنری و تاریخی است .این نشر در سال ۱۳۶۹ تاسیس شد.\r\n                    عمده فعالیت این نشر در زمینه ی ترجمه ی رمان های کلاسیک است. انتشارات مصدق و انتشارات فرهنگ برتر جزء موسسات انتشاراتی هستند که وابسته به نشر جامی فعالیت می کنند.\r\n                    آثاری نویسندگانی چون جورج اورول، امیلی برونته، هاینریش بل، مارک تواین، شارلوت بروتنه، جوجو مویز، ارنست همینگوی و جین آستین در این انتشارات چاپ شده است.",
                             Establishment_Date = new DateTime(1990, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4222),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(241),
                             Name = "انتشارات جامی"
                         },
                         new
                         {
                             Id = 19L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4224),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(243),
                             Description = "مختصری در مورد نیماژ بدانید:\r\n                    نیماژ؛ نشری‌ که فعالیت خود را سال 92 در زمينه‌ی شعر به‌صورت تخصصي آغاز کرده، جذابیت و امر چالش‌برانگیز شعر در سطوح مختلف جامعه را دلیلی بر انتخاب این حوزه برای آغاز فعالیت خود می‌داند. اما در سال 93 و ادامه‌ی آن این نشر با نگاهی متفاوت‌تر از شروع فعالیت خود،به انتشار عناوینی در زمینه‌ی ادبیات داستانی پرداخته، که در برگیرنده‌ی آثار نویسندگان ایرانی و خارجی‌ست در همین مسیر سرفصل‌هایی چون فلسفه و علوم اجتماعی را در سیاست‌های نشر کتاب خود تعریف کرد.",
                             Establishment_Date = new DateTime(2013, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4225),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(243),
                             Name = "نشر نیماژ"
                         },
                         new
                         {
                             Id = 20L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4226),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(245),
                             Description = "",
                             Establishment_Date = new DateTime(2009, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4227),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(246),
                             Name = "انتشارات آزرمیدخت"
                         },
                         new
                         {
                             Id = 21L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4229),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(247),
                             Description = "",
                             Establishment_Date = new DateTime(2017, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4230),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(248),
                             Name = "انتشارات ندای معاصر"
                         },
                         new
                         {
                             Id = 22L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4231),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(250),
                             Description = "مدیریت این انتشارات از سال 1357 تا پایان سال 1358 رئیس حسابداری انتشارات امیرکبیر بوده و از آن سال به بعد با چند نفر از دوستان شرکت نشر نو را تأسیس کرده و مدیریت آن را به عهده داشته است.\r\n                    در سال 1367 مدیریت انتشارات البرز را عهده ­دار بوده است و از سال 1375 تا امروز مدیر نشر پیکان است.\r\n                    تاکنون بیش از دو هزار عنوان کتاب به مدیریت ایشان منتشر شده است و اکنون این انتشارات در حوزه ­های روان­شناسی، فلسفه، ادبیات ایران، ادبیات جهان، هنر، علم، تاریخ، سیاست و … فعالیت دارد.",
                             Establishment_Date = new DateTime(1996, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4232),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(250),
                             Name = "نشر پیکان"
                         },
                         new
                         {
                             Id = 23L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4234),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(252),
                             Description = "",
                             Establishment_Date = new DateTime(1978, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4234),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(253),
                             Name = "انتشارات ذهن‌ آویز"
                         },
                         new
                         {
                             Id = 24L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4236),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(254),
                             Description = "نشر ترنگ در سال 1394 با هدف جذب مخاطبان در حوزه روان درمانگري و عرفان تاسيس شد. اين نشر تاکنون تمرکز اصلي خود را بر ارتقاء سطح کيفي زندگي ايرانيان متمرکز کرده است و با اتکا به شناخت خود از دغدغه هاي خانواده هاي ايراني سعي در چاپ کتب متنوع در زمينه بيداري، خودآگاهي و سلامت روان داشته است به مدد حمايت شما سروران گرامي اين نشر با قدرت به مسير خود ادامه مي دهد و با چاپ کتب مناسب از شناخته شده ترين مولفان، زمينه بهبود روند زندگي و سلامت رواني مخاطبان خود را مطالبه خواهد کرد.",
                             Establishment_Date = new DateTime(2015, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4237),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(255),
                             Name = "نشر ترنگ"
                         },
                         new
                         {
                             Id = 25L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4238),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(256),
                             Description = "",
                             Establishment_Date = new DateTime(2013, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4239),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(257),
                             Name = "انتشارات شهر پدرام"
                         },
                         new
                         {
                             Id = 26L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4241),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(259),
                             Description = "",
                             Establishment_Date = new DateTime(1978, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4242),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(260),
                             Name = "انتشارات زرین کلک"
                         },
                         new
                         {
                             Id = 27L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4243),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(261),
                             Description = "تنها یک سرک کوچک به سایت bidgolpublishing.com کافی‌ست که با نشر جذاب و خوش‌سلیقهٔ «بیدگل» آشنا شوید و تصمیم بگیرید توی عناوین کتاب‌های منتشرشده‌اش بچرخید. این انتشارات که توسط آقای «محمدحسن شاطریان بیدگلی» تاسیس شده، و احتمالاً اسم زیبایش را هم وامدار نام خانوداگی ایشان است، در زمینه‌های گوناگونی کتاب منتشر می‌کند که با یک مرور کلی روی عناوین آثار منتشرشده‌اش، می‌بینیم که اغلب این کتاب‌ها در حوزهٔ سینما، ادبیات، تئاتر، ادبیات داستانی، نگارش خلاق، دانش زندگی، هنرهای نمایشی و تاریخچهٔ آن‌ها، هنرهای تجسمی، دانش عمومی و مواردی از این دست به‌طور تخصصی، قرار می‌گیرند.",
                             Establishment_Date = new DateTime(2007, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4244),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(262),
                             Name = "نشر بیدگل"
                         },
                         new
                         {
                             Id = 28L,
-                            CreateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4246),
+                            CreateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(263),
                             Description = "",
                             Establishment_Date = new DateTime(1978, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            LastUpdateDate = new DateTime(2023, 3, 26, 15, 6, 22, 803, DateTimeKind.Local).AddTicks(4247),
+                            LastUpdateDate = new DateTime(2023, 3, 25, 11, 52, 24, 678, DateTimeKind.Local).AddTicks(264),
                             Name = "فناوری نوین"
                         });
                 });

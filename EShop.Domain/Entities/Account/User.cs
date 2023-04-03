@@ -19,6 +19,10 @@ namespace EShop.Domain.Entities.Account
         [MaxLength(100, ErrorMessage="تعداد کارکتر های {0} نمی تواند بیشتر از {1} باشد")]
         public string Email { get; set; }
 
+        [Display(Name = "کلمه عبور")]
+        [Required(ErrorMessage = "لطفا {0} را وارد نمایید")]
+        [MinLength(8, ErrorMessage = "تعداد کارکتر های {0} نمی تواند کمتر از {1} باشد")]
+        public string Password { get; set; }
 
         [Display(Name = "نام")]
         [Required(ErrorMessage = "لطفا {0} را وارد نمایید")]

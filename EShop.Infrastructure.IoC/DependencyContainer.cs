@@ -1,4 +1,8 @@
-﻿using EShop.Domain.Interfaces;
+﻿
+using EShop.Application.Interfaces;
+using EShop.Application.Security;
+using EShop.Application.Services;
+using EShop.Domain.Interfaces;
 using EShop.Infrastructure.Data.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -13,8 +17,18 @@ namespace EShop.Infrastructure.IoC
     {
         public static void RegisterServices(IServiceCollection service)
         {
-            //Application Layer
+            //Generic Repository
             service.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+            service.AddScoped<IUserService, UserService>();
+
+            service.AddScoped<IBookService, BookService>();
+
+            service.AddScoped<IBillboardService, BillboardService>();
+
+            service.AddScoped<IPasswordHelper, PasswordHelper>();
+
+            //service.AddSingleton<AggressionScore>();
         }
     }
 }

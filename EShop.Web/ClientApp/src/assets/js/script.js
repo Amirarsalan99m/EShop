@@ -79,15 +79,6 @@
       }
     });
 
-    $('.main-slider').slick({
-        autoplay: false,
-        autoplaySpeed: 4000,
-        fade: true,
-        dots: true,
-        prevArrow: $('.prev'),
-        nextArrow: $('.next'),
-    }); 
-
     $('.product-grid').slick({
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -138,3 +129,15 @@
 
 
 })(jQuery);
+
+
+function homeSlider() {
+  $('.main-slider').slick({
+    autoplay: false,
+    autoplaySpeed: 4000,
+    fade: true,
+    dots: true,
+    prevArrow: $('.prev'),
+    nextArrow: $('.next'),
+  });
+}

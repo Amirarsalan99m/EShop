@@ -15,6 +15,16 @@ import { SpecialOfferComponent } from './pages/home/special-offer/special-offer.
 import { SubscribeComponent } from './pages/home/subscribe/subscribe.component';
 import { LatestBlogComponent } from './pages/home/latest-blog/latest-blog.component';
 import { DownloadAppComponent } from './pages/home/download-app/download-app.component';
+import { BillboardService } from './services/billboard/billboard.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { AppRoutingModule } from './app-routing.module';
+import { Interceptor } from './utilities/Interceptor';
+import { CommentAggressionComponent } from './pages/comment-aggression/comment-aggression.component';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +41,25 @@ import { DownloadAppComponent } from './pages/home/download-app/download-app.com
     SpecialOfferComponent,
     SubscribeComponent,
     LatestBlogComponent,
-    DownloadAppComponent
+    DownloadAppComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    CommentAggressionComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [BillboardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

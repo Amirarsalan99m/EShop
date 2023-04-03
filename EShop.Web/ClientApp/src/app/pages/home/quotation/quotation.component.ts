@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'home-quotation',
   templateUrl: './quotation.component.html',
-  styleUrls: ['./quotation.component.css']
+  styleUrls: ['./quotation.component.scss']
 })
 export class QuotationComponent implements OnInit {
 

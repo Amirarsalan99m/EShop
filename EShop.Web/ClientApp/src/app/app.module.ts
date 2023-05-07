@@ -22,11 +22,12 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Interceptor } from './utilities/Interceptor';
 import { CommentAggressionComponent } from './pages/comment-aggression/comment-aggression.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthService } from './services/auth-service/auth.service';
 
 @NgModule({
   declarations: [
@@ -56,9 +57,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     MatButtonModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
-  providers: [BillboardService,
+  providers: [
+    BillboardService,
+    AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,

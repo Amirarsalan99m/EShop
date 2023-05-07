@@ -81,7 +81,7 @@ namespace EShop.Application.Services
 
         public bool IsEmailExists(string email)
         {
-            return _userRepository.GetEntitiesQuery().Where(e => e.Equals(email.ToLower().Trim())).Any();
+            return _userRepository.GetEntitiesQuery().Where(e => e.Email.Equals(email.ToLower().Trim())).Any();
         }
     }
 }

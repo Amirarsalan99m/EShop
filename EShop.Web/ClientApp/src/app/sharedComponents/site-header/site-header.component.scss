@@ -1,0 +1,49 @@
+button.user-account {
+  border-radius: 20px;
+  border: 1px solid #FF4B2B;
+  background-color: #FF4B2B;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0px 10px 0px 0px;
+  padding: 5px 45px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  height: 40px !important;
+}
+
+button.user-account:active {
+  transform: scale(0.95);
+}
+
+button.user-account:focus {
+  outline: none;
+}
+
+button.user-cart {
+  border-radius: 20px;
+  border: 1px solid #e8624a;
+  background-color: #e8624a;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0px 10px 0px 0px;
+  padding: 1px 25px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  height: 40px !important;
+}
+
+button.user-cart:active {
+  transform: scale(0.95);
+}
+
+button.user-cart:focus {
+  outline: none;
+}
+
+#header > div > div > div.col-md-2 {
+  display: flex;
+  align-items: center;
+}
+

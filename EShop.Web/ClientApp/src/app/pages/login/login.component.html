@@ -1,38 +1,43 @@
 <div class="container" id="container">
   <div class="form-container sign-up-container">
-    <form action="#">
+    <form [formGroup]="registerForm" (ngSubmit)="submitRegister()">
+      <div><br /></div>
       <h1>ساخت حساب کاربری</h1>
       <div><br /></div>
-      <input type="text" placeholder="نام" />
-      <input type="email" placeholder="ایمیل" />
-      <input type="password" placeholder="رمز عبور" />
-      <button>ثبت نام</button>
+      <input type="text" formControlName="firstName" [placeholder]="registerForm.controls.firstName.errors?.required && !registerForm.controls.firstName.dirty ? 'نام' : 'لطفا نام خود را وارد کنید' " />
+      <input type="text" formControlName="lastName" [placeholder]="registerForm.controls.lastName.errors?.required && !registerForm.controls.lastName.dirty ? 'نام خانوادگی' : 'لطفا نام خانوادگی خود را وارد کنید' " />
+      <input type="email" formControlName="email" [placeholder]="registerForm.controls.email.errors?.required && !registerForm.controls.email.dirty ? 'ایمیل' : 'لطفا ایمیل خود را وارد کنید' " />
+      <input type="password" formControlName="password" [placeholder]="registerForm.controls.password.errors?.required && !registerForm.controls.password.dirty ? 'رمز عبور' : 'لطفا رمز عبور خود را وارد کنید' " />
+      <input type="password" formControlName="passwordConfirm" [placeholder]="registerForm.controls.passwordConfirm.errors?.required && !registerForm.controls.passwordConfirm.dirty ? 'تایید رمز عبور' : 'لطفا تایید رمز عبور خود را وارد کنید' " />
+      <input type="text" formControlName="address" [placeholder]="registerForm.controls.address.errors?.required && !registerForm.controls.address.dirty ? 'آدرس' : 'لطفا آدرس خود را وارد کنید' " />
+      <button type="submit" [class]="registerForm.invalid ? 'disable' : '' " [disabled]="registerForm.invalid">ثبت نام</button>
     </form>
   </div>
   <div class="form-container sign-in-container">
-    <form action="#">
+    <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
       <h1>ورود به حساب کاربری</h1>
       <div><br /></div>
-      <input type="email" placeholder="ایمیل" />
-      <input type="password" placeholder="رمز عبور" />
+      <input type="email" formControlName="email" [placeholder]="loginForm.controls.email.errors?.required && !loginForm.controls.email.dirty ? 'ایمیل' : 'لطفا ایمیل خود را وارد کنید' " />
+      <input type="password" formControlName="password" [placeholder]="loginForm.controls.password.errors?.required && !loginForm.controls.password.dirty ? 'رمز عبور' : 'لطفا رمز عبور خود را وارد کنید' " />
       <a href="#">رمز عبور خود را فراموش کردید؟</a>
-      <button>ورود</button>
+      <button type="submit" [class]="loginForm.invalid ? 'disable' : '' " [disabled]="loginForm.invalid">ورود</button>
     </form>
   </div>
   <div class="overlay-container">
     <div class="overlay">
       <div class="overlay-panel overlay-left">
-        <h1>!خوش اومدی</h1>
+        <h1 class="overlay-title">!خوش اومدی</h1>
         <p>با ورود به حساب کاربری از امکانات کامل این فروشگاه بهره مند شو</p>
-        <button class="ghost" id="signIn">ورود</button>
+        <button id="signIn" class="ghost">ورود</button>
       </div>
       <div class="overlay-panel overlay-right">
-        <h1>!سلام، رفیق</h1>
+        <h1 class="overlay-title">!سلام، رفیق</h1>
         <p>با ساخت حساب کاربری از امکانات کامل این فروشگاه بهره مند شو</p>
-        <button class="ghost" id="signUp">ثبت نام</button>
+        <button id="signUp" class="ghost">ثبت نام</button>
       </div>
     </div>
   </div>
+  <div><br /></div>
 </div>
 
 

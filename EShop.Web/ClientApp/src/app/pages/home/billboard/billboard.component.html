@@ -1,32 +1,32 @@
 <section id="billboard" *ngIf="billboardItems!== null && billboardItems.length>0">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
 
-          <button class="prev slick-arrow">
-            <i class="icon icon-arrow-left"></i>
-          </button>
+        <button class="prev slick-arrow">
+          <i class="icon icon-arrow-left"></i>
+        </button>
 
-          <div class="main-slider pattern-overlay">
-            <div class="slider-item" *ngFor="let billboard of billboardItems">
-              <div class="banner-content">
-                <h2 class="banner-title">{{billboard.title}}</h2>
-                <p>{{billboard.description}}</p>
-                <div class="btn-wrap">
-                  <a href="#" class="btn btn-outline-accent btn-accent-arrow">اطلاعات بیشتر<i class="icon icon-arrow-left"></i></a>
-                </div>
-              </div><!--banner-content-->
-              <img src="/assets/images/books/{{billboard.id}}.jpg" alt="banner" class="banner-image">
-            </div><!--slider-item-->
+        <div class="main-slider pattern-overlay">
+          <div class="slider-item" *ngFor="let billboard of billboardItems">
+            <div class="banner-content">
+              <h2 class="banner-title">{{billboard.title}}</h2>
+              <p>{{billboard.description}}</p>
+              <div class="btn-wrap">
+                <a href="#" class="btn btn-outline-accent btn-accent-arrow">اطلاعات بیشتر<i class="icon icon-arrow-left"></i></a>
+              </div>
+            </div><!--banner-content-->
+            <img src="/assets/images/books/{{billboard.id}}.jpg" alt="banner" class="banner-image">
+          </div><!--slider-item-->
 
-          </div><!--slider-->
+        </div><!--slider-->
 
-          <button class="next slick-arrow">
-            <i class="icon icon-arrow-right"></i>
-          </button>
+        <button class="next slick-arrow">
+          <i class="icon icon-arrow-right"></i>
+        </button>
 
-        </div>
       </div>
     </div>
+  </div>
 
 </section>

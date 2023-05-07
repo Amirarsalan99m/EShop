@@ -1190,6 +1190,19 @@ button {
   text-transform: uppercase;
 }
 
+button.swal2-confirm {
+  border-radius: 15px !important;
+  border: 1px solid #FF4B2B !important;
+  background-color: #FF4B2B !important;
+  color: #FFFFFF !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  padding: 0px 35px !important;
+  text-transform: uppercase !important;
+  transition: transform 80ms ease-in !important;
+  height: 40px !important;
+}
+
 .btn-wrap {
   text-transform: capitalize;
 }
@@ -1448,9 +1461,17 @@ img.post-image {
   text-align: right;
 }
 
-  .top-content .right-element .for-buy {
-    margin-right: 40px;
-  }
+.top-content .left-element {
+  text-align: left;
+}
+
+  //.top-content .right-element .for-buy {
+  //  margin-right: 40px;
+  //}
+
+  //.top-content .left-element .for-buy {
+  //  margin-left: 40px;
+  //}
 
 /* - Search Form hover Effects
 ------------------------------------------------------------- */
@@ -1543,7 +1564,7 @@ img.post-image {
 /* - Main Navigation
 ------------------------------------------------------------- */
 #header {
-  padding: 10px 0;
+  padding: 30px 0;
 }
 
 

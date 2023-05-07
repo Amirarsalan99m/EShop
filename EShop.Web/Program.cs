@@ -11,6 +11,7 @@ using EShop.Web;
 using Microsoft.Extensions.ML;
 using EShop.AggressionScoreConsole;
 using EShop.Web.Data;
+using EShop.Application.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<EShopWebContext>(options =>
@@ -50,6 +51,15 @@ builder.Services.AddRateLimiter(_ => _
         options.QueueLimit = 2;
     }));
 
+string secretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY");
+if (string.IsNullOrEmpty(secretKey))
+{
+    var util = new Utilities();
+    secretKey = util.GenerateRandomString(64);
+    Environment.SetEnvironmentVariable("JWT_SECRET_KEY", secretKey);
+}
+
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -60,7 +70,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
             ValidIssuer = "https://localhost:5001/",
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("EshopJWTBearer"))
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey))
         };
     });
 

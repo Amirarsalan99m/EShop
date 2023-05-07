@@ -27,15 +27,15 @@ namespace EShop.Web.Controllers
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterUserDTO register)
         {
-            if (!ModelState.IsValid)
-                return BadRequest();
+            //if (!ModelState.IsValid)
+            //    return BadRequest();
 
             var result = await _userService.RegisterUser(register);
 
             if (result == RegisterUserResult.EmailExists)
                 return BadRequest(result);
 
-            return Ok(result);
+            return Ok(new { status="success", result=result });
         }
 
         #endregion
@@ -45,8 +45,8 @@ namespace EShop.Web.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginUserDTO login)
         {
-            if (!ModelState.IsValid)
-                return BadRequest();
+            //if (!ModelState.IsValid)
+            //    return BadRequest();
 
 
             var result = await _userService.LoginUser(login);
@@ -60,9 +60,10 @@ namespace EShop.Web.Controllers
                     return BadRequest(result);
 
                 case LoginUserResult.Success:
+                    string secretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY");
+                    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
                     var user = await _userService.GetUserByEmail(login.Email);
-                    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("EshopJWTBearer"));
-                    var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+                    var signinCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
                     var tokenOptions = new JwtSecurityToken(
                         issuer: "https://localhost:5001/",
                         claims: new List<Claim>
@@ -76,7 +77,7 @@ namespace EShop.Web.Controllers
 
                     var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
 
-                    return Ok(new { token = tokenString, expireTime = 30, userFirstName = user.FirstName, userLastName = user.LastName, userId = user.Id });
+                    return Ok(new {status = "success", token = tokenString, expireTime = 30, userFirstName = user.FirstName, userLastName = user.LastName, userId = user.Id });
             }
 
             return BadRequest(result);

@@ -2,6 +2,7 @@
 using EShop.Application.Models;
 using EShop.Domain.Entities;
 using EShop.Domain.Interfaces;
+using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -21,26 +22,21 @@ namespace EShop.Application.Services
 
         public async Task<List<BillboardModel>> GetBillboardItems()
         {
-            var books = await _repository.GetEntitiesQuery().Take(2).ToListAsync();
-            var billboardItems = new List<BillboardModel>()
+            var books = await _repository.GetEntitiesQuery().Take(5).ToListAsync();
+            var billboardItems = new List<BillboardModel>();
+            foreach (var book in books)
             {
-                new BillboardModel()
+                var billboardItem = new BillboardModel()
                 {
-                    Id = books[0].Id,
-                    Title = books[0].Title,
-                    Description = books[0].Description,
-                    Image = books[0].Image,
-                },
-                new BillboardModel()
-                {
-                    Id = books[1].Id,
-                    Title = books[1].Title,
-                    Description = books[1].Description,
-                    Image = books[1].Image,
-                }
-            };
+                    Id = book.Id,
+                    Title = book.Title,
+                    Description = book.Description,
+                    Image = book.Image,
+                };
 
+                billboardItems.Add(billboardItem);
+            }
             return billboardItems;
         }
-    }
+}
 }

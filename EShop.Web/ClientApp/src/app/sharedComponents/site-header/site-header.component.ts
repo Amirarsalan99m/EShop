@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { CurrentUserDTO } from '../../DTOs/account/CurrentUserDTO';
 import { LoginComponent } from '../../pages/login/login.component';
+import { AuthService } from '../../services/auth-service/auth.service';
 
 @Component({
   selector: 'site-header',
@@ -9,9 +11,14 @@ import { LoginComponent } from '../../pages/login/login.component';
 })
 export class SiteHeaderComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  public user: CurrentUserDTO = { firstName: '', lastName: '', userId: 0 };
+
+  constructor(private authService: AuthService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.authService.getCurrentUser().subscribe(user => {
+      this.user = user;
+    });
   }
 
   openDialog() {

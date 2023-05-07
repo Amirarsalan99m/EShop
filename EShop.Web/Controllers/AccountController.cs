@@ -33,7 +33,7 @@ namespace EShop.Web.Controllers
             var result = await _userService.RegisterUser(register);
 
             if (result == RegisterUserResult.EmailExists)
-                return BadRequest(result);
+                return Ok(new {status = "emailExists"});
 
             return Ok(new { status="success", result=result });
         }
@@ -54,10 +54,10 @@ namespace EShop.Web.Controllers
             switch (result)
             {
                 case LoginUserResult.IncorrectUsernameOrPassword:
-                    return BadRequest(result);
+                    return Ok(new {status = "incorrectUsernameOrPassword"});
                     
                     case LoginUserResult.NotActivated:
-                    return BadRequest(result);
+                    return Ok(new {status = "notActivated"});
 
                 case LoginUserResult.Success:
                     string secretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY");
@@ -80,7 +80,7 @@ namespace EShop.Web.Controllers
                     return Ok(new {status = "success", token = tokenString, expireTime = 30, userFirstName = user.FirstName, userLastName = user.LastName, userId = user.Id });
             }
 
-            return BadRequest(result);
+            return Ok(new {status = "somethingWentWrong"});
         }
 
         #endregion

@@ -5,7 +5,7 @@ import { LoginUserDTO } from '../../DTOs/account/LoginUserDTO';
 import { RegisterUserDTO } from '../../DTOs/account/RegisterUserDTO';
 import { AuthService } from '../../services/auth-service/auth.service';
 import Swal from 'sweetalert2';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { CurrentUserDTO } from '../../DTOs/account/CurrentUserDTO';
 
 @Component({

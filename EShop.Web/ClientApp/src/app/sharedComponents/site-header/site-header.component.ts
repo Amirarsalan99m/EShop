@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { CurrentUserDTO } from '../../DTOs/account/CurrentUserDTO';
 import { LoginComponent } from '../../pages/login/login.component';
 import { AuthService } from '../../services/auth-service/auth.service';
